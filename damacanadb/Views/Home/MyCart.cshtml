@@ -1,0 +1,39 @@
+﻿@using damacanadb.Models
+
+@model List<damacanadb.Models.Product>
+@using System.Collections.Generic
+
+@{
+    ViewBag.Title = "MyCart";
+}
+
+<h2>MyCart</h2>
+
+@foreach (var p in Model)
+{
+    <table style="width:27%">
+
+        <tr>
+
+
+            <td>
+                <div class="alert alert-success" role="alert">
+                    <h4 class="media-middle">@p.Name</h4>
+                    <b>@p.Price Price</b>
+                    <a class="btn btn-default" href="@Url.Action("DeleteInCart", new { Name = p.Name})"><b>Delete In Cart</b></a>
+
+
+                </div>
+            </td>
+        </tr>
+    </table>
+    // <input class="btn btn-default" type="button" value="Add Product to Cart">
+
+}
+<a class="btn btn-default" href="@Url.Action("Buy", new { x = Model })"><b> Buy </b></a>
+<nav>
+    <ul class="pager">
+        <li><a href="@Url.Action("Index")">Home Page</a></li>
+
+    </ul>
+</nav>

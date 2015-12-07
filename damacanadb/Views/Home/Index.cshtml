@@ -1,0 +1,44 @@
+﻿@using damacanadb.Models
+
+@model List<damacanadb.Models.Product>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@* <a href="@Url.Action("AddToCart")"> Add New Product To Cart</a>
+*@
+<a href="@Url.Action("AddProduct")"> Add New Product </a>
+
+@* <a href="@Url.Action("MyCart")"> My Cart </a>*@
+<h2>
+    Products
+</h2>
+@foreach (Product p in Model)
+{
+    <h2>
+        @p.Name (@p.Id)
+    </h2>
+    <p>
+        @p.Price
+    </p>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="http://www.thewaterdeliverycompany.com/blog/wp-content/uploads/2009/03/19-litre-bottled-water-bottle.jpg" alt="...">
+            </a>
+
+        </div>
+        <div>
+            <a class="btn btn-success" href="@Url.Action("AddToCart", new { name = p.Name})">Add to Cart</a>
+            <a class="btn-link" style="color:red" href="@Url.Action("EditProduct", new { name = p.Name })"><b>Change Details </b></a>
+            <br />
+            <a class="btn btn-warning" style="color:blue" href="@Url.Action("DeleteProduct", new { name = p.Name })"><b>Remove Product</b></a>
+
+        </div>
+    </div>
+
+    // <input class="btn btn-default" type="button" value="Add Product to Cart">
+
+}

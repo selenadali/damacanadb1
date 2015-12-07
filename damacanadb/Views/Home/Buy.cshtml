@@ -1,0 +1,13 @@
+﻿@using damacanadb.Models
+@model Cart
+@{
+    ViewBag.Title = "Buy";
+}
+<h2> Buy </h2>
+<h2> <span class="media-heading">Ödenecek Miktar: @Model.TotalPrice TL </span> </h2>
+<nav>
+    <ul class="pager">
+        <li><a href="@Url.Action("Index")">Home Page</a></li>
+
+    </ul>
+</nav>
